@@ -19,11 +19,18 @@ class Robot:
 
         self.update_pose(left_distance, right_distance)
 
-        utils.draw_bot(self.screen, "black", self.wheel_separation,
-                       self.position, self.orientation)
+        utils.draw_bot(
+            self.screen,
+            "black",
+            self.wheel_separation,
+            self.position,
+            self.orientation,
+        )
 
     def get_ticks_count(self):
-        return int(self.left_ticks_count * 20), int(self.right_ticks_count * 20)
+        return int(self.left_ticks_count * 20), int(
+            self.right_ticks_count * 20
+        )
 
     def reset(self):
         self.left_ticks_count = 0
@@ -32,14 +39,17 @@ class Robot:
         self.orientation = 0
 
     def update_pose(self, left_distance, right_distance):
-        linear_speed = (self.wheel_radius / 2) * \
-            (left_distance + right_distance)
-        angular_speed = (self.wheel_radius / self.wheel_separation) * \
-            (left_distance - right_distance)
+        linear_speed = (self.wheel_radius / 2) * (
+            left_distance + right_distance
+        )
+        angular_speed = (self.wheel_radius / self.wheel_separation) * (
+            left_distance - right_distance
+        )
 
         self.orientation += angular_speed
-        self.position += linear_speed * \
-            np.array([np.cos(self.orientation), np.sin(self.orientation)])
+        self.position += linear_speed * np.array(
+            [np.cos(self.orientation), np.sin(self.orientation)]
+        )
 
         self.left_ticks_count += left_distance / (np.pi * 2)
         self.right_ticks_count += right_distance / (np.pi * 2)

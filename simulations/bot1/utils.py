@@ -10,14 +10,16 @@ class pid_target:
 
     def target(self, target_position, robot):
         distance_to_target = np.linalg.norm(
-            np.array(target_position) - robot.position)
+            np.array(target_position) - robot.position
+        )
         desired_orientation = np.arctan2(
             target_position[1] - robot.position[1],
             target_position[0] - robot.position[0],
         )
 
-        error = (desired_orientation - robot.orientation +
-                 np.pi) % (2 * np.pi) - np.pi
+        error = (desired_orientation - robot.orientation + np.pi) % (
+            2 * np.pi
+        ) - np.pi
 
         angular_speed = np.degrees(self.PID(error))
 

@@ -6,7 +6,13 @@ import numpy as np
 
 def inputHandler(key, controller, SIZE):
 
-    if key()[pygame.K_SPACE] or controller.position[0] > SIZE[0] or controller.position[0] < 0 or controller.position[1] < 0 or controller.position[1] > SIZE[1]:
+    if (
+        key()[pygame.K_SPACE]
+        or controller.position[0] > SIZE[0]
+        or controller.position[0] < 0
+        or controller.position[1] < 0
+        or controller.position[1] > SIZE[1]
+    ):
         controller.reset()
 
 

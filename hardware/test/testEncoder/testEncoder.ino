@@ -12,7 +12,7 @@ void setup()
 {
     pinMode(rightMotorPin1, OUTPUT);
     pinMode(rightMotorPin2, OUTPUT);
-       // ENABLE PCIE0 Bit0 = 1 (port B)
+    // ENABLE PCIE0 Bit0 = 1 (port B)
     PCICR |= B00000001;
     // SELECT PCINT4 Bit4 = 1 (pin 12)
     PCMSK0 |= B00010000;
@@ -47,7 +47,8 @@ void loop()
 
     unsigned long currentMillis = millis();
 
-    if (currentMillis - previousMillis >= interval) {
+    if (currentMillis - previousMillis >= interval)
+    {
         previousMillis = currentMillis;
         Serial.print("0,50,");
         Serial.println(counter1);
@@ -59,5 +60,3 @@ ISR(PCINT0_vect)
 {
     counter1++; // increment counter1
 }
-
-

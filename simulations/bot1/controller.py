@@ -19,7 +19,8 @@ class Controller:
     def target(self):
         target_position = pygame.mouse.get_pos()
         linear_speed, angular_speed = targeting_algorithm.target(
-            target_position, self)
+            target_position, self
+        )
         self.diff_drive(linear_speed, angular_speed)
 
     def diff_drive(self, linear_speed, angular_speed):
@@ -30,12 +31,21 @@ class Controller:
         right_speed = (
             linear_speed + 0.5 * angular_speed * self.robot.wheel_separation
         )
-        left_speed, right_speed = np.round(
-            left_speed, 2), np.round(right_speed, 2)
+        left_speed, right_speed = np.round(left_speed, 2), np.round(
+            right_speed, 2
+        )
         left_speed = max(-self.max_speed, min(left_speed, self.max_speed))
         right_speed = max(-self.max_speed, min(right_speed, self.max_speed))
-        utils.debug(f"L_{left_speed}_R_{right_speed}",
-                    [self.position[0]+self.robot.wheel_separation/2, self.position[1]], "white", "black", self.screen)
+        utils.debug(
+            f"L_{left_speed}_R_{right_speed}",
+            [
+                self.position[0] + self.robot.wheel_separation / 2,
+                self.position[1],
+            ],
+            "white",
+            "black",
+            self.screen,
+        )
         self.robot.move(left_speed, right_speed)
         self.update_pose()
 

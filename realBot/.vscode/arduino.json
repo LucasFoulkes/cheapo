@@ -1,5 +1,0 @@
-{
-    "board": "arduino:avr:uno",
-    "sketch": "control3/control3.ino",
-    "port": "/dev/ttyACM0"
-}
