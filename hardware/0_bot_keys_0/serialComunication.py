@@ -13,9 +13,6 @@ while True:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             sys.exit()
-            # read arduino data
-            # arduinoData = arduino.readline()
-            # print(arduinoData)
         if event.type == pygame.KEYDOWN:
             print("Keydown")
             if event.key == pygame.K_UP:
