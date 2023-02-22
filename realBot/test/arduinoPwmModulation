@@ -1,0 +1,7 @@
+  // TCCR1B = TCCR1B & B11111000 | B00000001; // for PWM frequency of 31372.55 Hz
+  // TCCR1B = TCCR1B & B11111000 | B00000010; // for PWM frequency of 3921.16 Hz
+  // TCCR1B = TCCR1B & B11111000 | B00000011; // for PWM frequency of 490.20 Hz (The DEFAULT)
+  // TCCR1B = TCCR1B & B11111000 | B00000100; // for PWM frequency of 122.55 Hz
+  // TCCR1B = TCCR1B & B11111000 | B00000101; // for PWM frequency of 30.64 Hz
+
+
